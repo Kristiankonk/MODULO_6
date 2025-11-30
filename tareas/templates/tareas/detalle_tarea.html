@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Detalle de tarea</h1>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ tarea.titulo }}</h5>
+    <p class="card-text">{{ tarea.descripcion|linebreaks }}</p>
+    <p><strong>ID:</strong> {{ tarea.id }}</p>
+    <a href="{% url 'lista_tareas' %}" class="btn btn-secondary">Volver</a>
+    <a href="{% url 'eliminar_tarea' tarea.id %}" class="btn btn-danger ms-2">Eliminar</a>
+  </div>
+</div>
+{% endblock %}

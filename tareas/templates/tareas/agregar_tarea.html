@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Agregar tarea</h1>
+
+<form method="post" class="mt-3">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Guardar</button>
+  <a href="{% url 'lista_tareas' %}" class="btn btn-secondary ms-2">Cancelar</a>
+</form>
+{% endblock %}
