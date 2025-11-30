@@ -7,25 +7,40 @@ proyecto.
 
 ## 📦 Características
 
--   Registro de usuarios\
--   Inicio y cierre de sesión\
--   Lista de tareas por usuario\
--   Crear, ver y eliminar tareas\
--   Interfaz responsiva con Bootstrap\
--   Tareas en memoria (no persisten al reiniciar)\
--   Vistas protegidas con login_required\
+-   Registro de usuarios
+-   Inicio y cierre de sesión
+-   Lista de tareas por usuario
+-   Crear, ver y eliminar tareas
+-   Interfaz responsiva con Bootstrap
+-   Tareas en memoria (no persisten al reiniciar)
+-   Vistas protegidas con login_required
 -   Separación estricta por usuario
 
 ## 🧩 Estructura del Proyecto
 
-gestor_tareas/ │ manage.py │ ├── gestor_tareas/ │ ├── settings.py │ ├──
-urls.py │ ├── wsgi.py │ └── asgi.py │ └── tareas/ ├── views.py ├──
-urls.py ├── forms.py ├── templates/ │ ├── tareas/ │ └── registration/
-└── apps.py
+gestor_tareas/
+│   manage.py
+│
+├── gestor_tareas/          # Configuración global del proyecto
+│   ├── settings.py         # Configuración general (apps, BD, seguridad, etc.)
+│   ├── urls.py             # Enrutamiento principal
+│   ├── wsgi.py
+│   └── asgi.py
+│
+└── tareas/                 # Aplicación principal del sistema
+    ├── views.py            # Lógica de vistas (CRUD en memoria y autenticación)
+    ├── urls.py             # Rutas específicas de tareas
+    ├── forms.py            # Formularios (registro y creación de tareas)
+    ├── templates/          # Plantillas HTML con Bootstrap
+    │     ├── tareas/       # Plantillas del módulo de tareas
+    │     └── registrar/    # Plantillas de autenticación
+    └── apps.py
+
+
 
 ## 🚀 Instalación y Ejecución
 
-### 1️⃣ Crear o ejecutar entorno virtual
+### 1️⃣ Crear entorno virtual
 
 Windows:
 
@@ -52,11 +67,24 @@ macOS / Linux:
 
 ## 🛠 Tecnologías utilizadas
 
--   Python 3.x\
--   Django 5.x\
+-   Python 3.13.5\
+-   Django 5.2.8\
 -   HTML + Bootstrap 5\
 -   Sistema de autenticación de Django\
 -   Estructuras en memoria
+
+## 🚀  Ejecutar en modo producción (opcional)
+
+En settings.py:
+
+DEBUG = False
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+
+
+## Recolectar archivos estáticos:
+
+python manage.py collectstatic
+
 
 ## 📜 Licencia
 
