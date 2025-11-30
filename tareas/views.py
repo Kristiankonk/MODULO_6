@@ -35,7 +35,7 @@ def registro(request):
             return redirect('login')
     else:
         form = RegistroForm()
-    return render(request, 'registration/registro.html', {'form': form})
+    return render(request, 'registrar/registro.html', {'form': form})
 
 
 # VISTAS DE TAREAS 

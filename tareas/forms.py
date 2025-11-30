@@ -11,7 +11,31 @@ class TareaForm(forms.Form):
     )
 
 class RegistroForm(UserCreationForm):
-    email = forms.EmailField(required=True)
+    username = forms.CharField(
+        label="Nombre de usuario",
+        help_text="Obligatorio. Solo letras, números y @/./+/-/_",
+        widget=forms.TextInput(attrs={"class": "form-control"})
+    )
+
+    email = forms.EmailField(
+        label="Correo electrónico",
+        help_text="Obligatorio. Debe ser un correo válido.",
+        widget=forms.EmailInput(attrs={"class": "form-control"})
+    )
+
+    password1 = forms.CharField(
+        label="Contraseña",
+        strip=False,
+        help_text="Debe contener al menos 8 caracteres.",
+        widget=forms.PasswordInput(attrs={"class": "form-control"})
+    )
+
+    password2 = forms.CharField(
+        label="Confirmar contraseña",
+        strip=False,
+        help_text="Ingresa nuevamente la contraseña.",
+        widget=forms.PasswordInput(attrs={"class": "form-control"})
+    )
 
     class Meta:
         model = User
